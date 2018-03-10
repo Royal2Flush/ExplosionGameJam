@@ -26,6 +26,10 @@ public class BombQueue
     public void RemoveBomb(int number)
     {
         queue.RemoveAt(number);
+        for (int i = number; i < queue.Count - 1; i++)
+        {
+            queue[i].SetOrderNumber(queue[i].orderNumber - 1);
+        }
     }
 
     public void RemoveLast()
