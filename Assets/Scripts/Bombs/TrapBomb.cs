@@ -26,7 +26,7 @@ public class TrapBomb : Bomb {
         }
     }
 
-	public override void Reset() {
-		// TODO
-	}
+    public override void Reset() {
+        throw new System.NotImplementedException();
+    }
 }
