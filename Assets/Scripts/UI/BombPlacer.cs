@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BombManager : MonoBehaviour {
+public class BombPlacer : MonoBehaviour {
 
 	private List<GameObject> bombs = new List<GameObject>();
 	private GameObject bombToDrop;
@@ -44,6 +44,7 @@ public class BombManager : MonoBehaviour {
 
 	public void SelectBomb(GameObject bombPrefab) {
 		bombToDrop = Instantiate (bombPrefab);
+        bombToDrop.transform.SetParent(GameManager.Bombs.transform);
 		bombToDrop.GetComponent<Bomb> ().SetTransparent (true);
 
 		// Enum in list

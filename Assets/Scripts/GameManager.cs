@@ -34,11 +34,26 @@ public class GameManager : MonoBehaviour {
     }
     public InputManager inputManager;
 
+    public static GameObject Bombs {
+        get {
+            return instance.bombs;
+        }
+    }
+    public GameObject bombs;
+
+    public GameObject startButton;
+
     void Start() {
         InputManager.enabled = false;
     }
 
-    public static void StartGame() {
+    public void StartGame() {
+        startButton.SetActive(false);
         InputManager.enabled = true;
+    }
+
+    public void ResetGame() {
+        InputManager.enabled = true;
+        startButton.SetActive(true);
     }
 }
