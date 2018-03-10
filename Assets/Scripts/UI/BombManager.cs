@@ -19,11 +19,20 @@ public class BombManager : MonoBehaviour {
 			return;
 		}
 
-		Vector3 mousePos = Input.mousePosition;
-		bombToDrop.transform.position = new Vector3(
-			Camera.main.ScreenToWorldPoint(mousePos).x,
-			Camera.main.ScreenToWorldPoint(mousePos).y, 0
+		// Mouse pos in world coordinates
+		Vector3 mousePos = new Vector3(
+			Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
+			Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0
 		);
+
+		// Rotate bomb
+		if (Input.GetKey(KeyCode.LeftShift)) {
+			bombToDrop.transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - bombToDrop.transform.position);
+		
+		// Bomb locked to mouse pos
+		} else {
+			bombToDrop.transform.position = mousePos;
+		}
 
 		// Place bomb on click
 		if (Input.GetMouseButtonDown(0))
