@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Bomb : MonoBehaviour {
-    public float force;
+public class Ball : MonoBehaviour {
+    new public Rigidbody2D rigidbody;
 
 	// Use this for initialization
 	void Start () {
-        
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonDown(0)) {
-            Explode();
-        }
+		
 	}
 
-    public abstract void Explode();
+    public void AddForce(Vector2 force) {
+        rigidbody.AddForce(force);
+    }
 }
