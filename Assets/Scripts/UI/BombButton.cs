@@ -22,15 +22,15 @@ public class BombButton : MonoBehaviour {
 
 	public void placedBomb () {
 		numBombs -= 1;
+		updateInfoText ();
+	}
+
+	private void updateInfoText () {
 		if (numBombs <= 0) {
 			gameObject.SetActive (false);
 			return;
 		}
 
-		updateInfoText ();
-	}
-
-	private void updateInfoText () {
 		infoText.text = numBombs.ToString();
 	}
 }
