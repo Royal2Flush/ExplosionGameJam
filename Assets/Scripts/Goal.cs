@@ -15,6 +15,6 @@ public class Goal : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		Debug.Log ("trigger");
+		CampaignManager.s_instance.LoadNextLevel ();
 	}
 }
