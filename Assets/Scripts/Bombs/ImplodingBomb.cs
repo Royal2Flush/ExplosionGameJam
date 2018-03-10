@@ -12,9 +12,12 @@ public class ImplodingBomb : Bomb {
         float distance = Vector2.Distance(ballPosition, transform.position);
 
         GameManager.Ball.AddForce(direction * (1 / distance * force));
+
+        GameManager.SoundManager.Explosion();
+        animator.SetTrigger("Explode");
     }
 
     public override void Reset() {
-        throw new NotImplementedException();
+        animator.SetTrigger("Reset");
     }
 }

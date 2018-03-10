@@ -13,6 +13,7 @@ public class CirclularBomb : Bomb {
 
         GameManager.Ball.AddForce(direction * (1 / distance * force));
 
+        GameManager.SoundManager.Explosion();
         animator.SetTrigger("Explode");
     }
 		

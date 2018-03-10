@@ -535,7 +535,7 @@ MonoBehaviour:
   ball: {fileID: 2019508159}
   inputManager: {fileID: 1472181423}
   bombs: {fileID: 1124678178}
-  soundManager: {fileID: 0}
+  soundManager: {fileID: 1894737931}
   startButton: {fileID: 728644340}
   resetButton: {fileID: 179560352}
 --- !u!4 &287301842
@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f649997820fec489aa469fd261b58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1894737930}
   wallHits:
   - {fileID: 8300000, guid: b04fc3237c201a84fb6d87234a20479a, type: 3}
   - {fileID: 8300000, guid: 942c1d3bccdedd243961846d3e28734a, type: 3}

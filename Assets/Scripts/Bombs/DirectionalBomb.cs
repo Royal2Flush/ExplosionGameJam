@@ -13,6 +13,7 @@ public class DirectionalBomb : Bomb {
 
         GameManager.Ball.AddForce(calculateForce());
 
+        GameManager.SoundManager.Explosion();
         animator.SetTrigger("Explode");
     }
 
