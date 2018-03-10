@@ -15,6 +15,8 @@ public class Goal : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		CampaignManager.s_instance.LoadNextLevel ();
+		if (col.gameObject.tag == "Player") {
+			CampaignManager.s_instance.LoadNextLevel ();
+		}
 	}
 }
