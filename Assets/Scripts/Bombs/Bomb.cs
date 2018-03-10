@@ -7,6 +7,8 @@ public abstract class Bomb : MonoBehaviour {
 
     public int orderNumber { get; private set; }
 
+    public Animator animator;
+
 
 	// Use this for initialization
 	void Start () {
