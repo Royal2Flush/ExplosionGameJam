@@ -12,6 +12,8 @@ public class DirectionalBomb : Bomb {
         ballPosition = GameManager.Ball.transform.position;
 
         GameManager.Ball.AddForce(calculateForce());
+
+        animator.SetTrigger("Explode");
     }
 
     Vector2 calculateForce() {
@@ -31,6 +33,6 @@ public class DirectionalBomb : Bomb {
 
 
     public override void Reset() {
-        throw new NotImplementedException();
+        animator.SetTrigger("Reset");
     }
 }
