@@ -15,4 +15,8 @@ public class CirclularBomb : Bomb {
 
         Destroy(gameObject);
     }
+
+	public override void Reset() {
+		// TODO
+	}
 }

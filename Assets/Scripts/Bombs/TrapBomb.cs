@@ -25,4 +25,8 @@ public class TrapBomb : Bomb {
             GameManager.Ball.rigidbody.velocity = new Vector2(0, 0);
         }
     }
+
+	public override void Reset() {
+		// TODO
+	}
 }
