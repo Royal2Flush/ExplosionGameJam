@@ -10,7 +10,7 @@ public class MusicManager : MonoBehaviour {
     public AudioClip finishSound;
     
 	void Start () {
-        if(instance) { Destroy(gameObject); }
+        if(instance) { Destroy(gameObject); return; }
         instance = this;
         DontDestroyOnLoad(gameObject);
         audioSource.clip = music;
