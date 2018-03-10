@@ -2,15 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour {
+public abstract class Bomb : MonoBehaviour {
+    public float force;
+
+    public int orderNumber { get; private set; }
 
 	// Use this for initialization
 	void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(Input.GetMouseButtonDown(0)) {
+            Explode();
+        }
 	}
+
+    public abstract void Explode();
+
+    public void SetOrderNumber(int number)
+    {
+        orderNumber = number;
+
+        // !! set GUI number 
+    }
 }
