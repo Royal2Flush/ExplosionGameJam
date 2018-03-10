@@ -70,4 +70,8 @@ public class GameManager : MonoBehaviour {
         InputManager.enabled = true;
         Ball.Reset();
     }
+
+    public void ResetLevel() {
+        CampaignManager.instance.ReloadLevel();
+    }
 }

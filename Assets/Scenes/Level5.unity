@@ -478,6 +478,21 @@ Prefab:
       propertyPath: numBombs
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114035132044675354, guid: ea773eb3eb6372744b551a91337df2d8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 287301841}
+    - target: {fileID: 114035132044675354, guid: ea773eb3eb6372744b551a91337df2d8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 114282477798426080, guid: ea773eb3eb6372744b551a91337df2d8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea773eb3eb6372744b551a91337df2d8, type: 2}
   m_IsPrefabParent: 0
