@@ -8,3 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jannis.unity
     guid: 40863d0d9e0a5c742a2fa64ebd9f8de7
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 35d69586245658e4abb8b968a51d2837
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 0ccaaae638e476045844613e33a12c92
