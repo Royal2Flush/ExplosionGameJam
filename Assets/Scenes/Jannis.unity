@@ -535,6 +535,7 @@ MonoBehaviour:
   ball: {fileID: 2019508159}
   inputManager: {fileID: 1472181423}
   bombs: {fileID: 1124678178}
+  soundManager: {fileID: 0}
   startButton: {fileID: 728644340}
   resetButton: {fileID: 179560352}
 --- !u!4 &287301842
@@ -649,6 +650,28 @@ Transform:
   m_Father: {fileID: 218959056}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &591462700 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1376490504320732, guid: 89764908632d9cb489fa35649afb5952,
+    type: 2}
+  m_PrefabInternal: {fileID: 1236984987}
+--- !u!95 &591462701
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 591462700}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb95622269022184083224bde476ca65, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &643641003
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +820,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1236984987
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4712307926404270, guid: 89764908632d9cb489fa35649afb5952, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712307926404270, guid: 89764908632d9cb489fa35649afb5952, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712307926404270, guid: 89764908632d9cb489fa35649afb5952, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712307926404270, guid: 89764908632d9cb489fa35649afb5952, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712307926404270, guid: 89764908632d9cb489fa35649afb5952, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712307926404270, guid: 89764908632d9cb489fa35649afb5952, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712307926404270, guid: 89764908632d9cb489fa35649afb5952, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712307926404270, guid: 89764908632d9cb489fa35649afb5952, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 89764908632d9cb489fa35649afb5952, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1472181422
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +956,7 @@ GameObject:
   - component: {fileID: 1894737926}
   - component: {fileID: 1894737925}
   - component: {fileID: 1894737930}
+  - component: {fileID: 1894737931}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1048,6 +1114,68 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1894737931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1894737924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f649997820fec489aa469fd261b58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  wallHits:
+  - {fileID: 8300000, guid: b04fc3237c201a84fb6d87234a20479a, type: 3}
+  - {fileID: 8300000, guid: 942c1d3bccdedd243961846d3e28734a, type: 3}
+  explosions:
+  - {fileID: 8300000, guid: af5ad5e05433cc24eb574a106c801838, type: 3}
+  - {fileID: 8300000, guid: 44a7a83916abba145820b743c0f24fb9, type: 3}
+  - {fileID: 8300000, guid: 37580cc0fe9cc414eada949f9acf3dd2, type: 3}
+  - {fileID: 8300000, guid: 8fe9e3ea17dd8a24f83ca302989f7037, type: 3}
+--- !u!1001 &1928014123
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4651521525845066, guid: 92960f3e83da4354e8a2d467abc5f3cf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651521525845066, guid: 92960f3e83da4354e8a2d467abc5f3cf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651521525845066, guid: 92960f3e83da4354e8a2d467abc5f3cf, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651521525845066, guid: 92960f3e83da4354e8a2d467abc5f3cf, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651521525845066, guid: 92960f3e83da4354e8a2d467abc5f3cf, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651521525845066, guid: 92960f3e83da4354e8a2d467abc5f3cf, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651521525845066, guid: 92960f3e83da4354e8a2d467abc5f3cf, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651521525845066, guid: 92960f3e83da4354e8a2d467abc5f3cf, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 92960f3e83da4354e8a2d467abc5f3cf, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2019508154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,7 +1237,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &2019508156
 Transform:
