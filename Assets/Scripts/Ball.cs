@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
     new public Rigidbody2D rigidbody;
+    public SpriteRenderer sr;
+    public Sprite playerAlive;
+    public Sprite playerDead;
     private Vector2 startPosition;
 
 	// Use this for initialization
@@ -16,13 +19,24 @@ public class Ball : MonoBehaviour {
 		
 	}
 
-    public void AddForce(Vector2 force) {
+    public void AddForce(Vector2 force)
+    {
         rigidbody.AddForce(force);
     }
 
-    public void Reset() {
+    public void Die()
+    {
+        rigidbody.simulated = false;
+        sr.sprite = playerDead;
+    }
+
+    public void Reset()
+    {
         print("Reset Ball Position");
         transform.position = startPosition;
         rigidbody.velocity = Vector2.zero;
+
+        rigidbody.simulated = true;
+        sr.sprite = playerAlive;
     }
 }
