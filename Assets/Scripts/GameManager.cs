@@ -42,18 +42,23 @@ public class GameManager : MonoBehaviour {
     public GameObject bombs;
 
     public GameObject startButton;
+	public GameObject resetButton;
 
     void Start() {
         InputManager.enabled = false;
     }
-
+		
     public void StartGame() {
         startButton.SetActive(false);
+		resetButton.SetActive(true);
+
         InputManager.enabled = true;
     }
 
-    public void ResetGame() {
+	public void ResetGame() {
+		startButton.SetActive(true);
+		resetButton.SetActive(false);
+
         InputManager.enabled = true;
-        startButton.SetActive(true);
     }
 }
