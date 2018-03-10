@@ -2,25 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombQueue : MonoBehaviour {
-
+public class BombQueue
+{
     private List<Bomb> queue;
     private int currentIndex;
 
-	// Use this for initialization
-	void Start () {
+	public BombQueue()
+    {
         queue = new List<Bomb>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     public void PushBomb(Bomb bomb)
     {
         queue.Add(bomb);
-        bomb.SetOrderNumber(queue.Count - 1); // strat with 0
+        bomb.SetOrderNumber(queue.Count - 1); // start with 0
     }
 
     public void ExplodeNextBomb()
@@ -56,7 +51,7 @@ public class BombQueue : MonoBehaviour {
 
     public void MoveBombUpInOrder(int bombNumber)
     {
-        if(bombNumber == 0)
+        if(bombNumber <= 0)
         {
             Debug.Log("Tried to move the first bomb up in order");
             return;
@@ -71,7 +66,7 @@ public class BombQueue : MonoBehaviour {
 
     public void MoveBombDownInOrder(int bombNumber)
     {
-        if (bombNumber == queue.Count - 1)
+        if (bombNumber >= queue.Count - 1)
         {
             Debug.Log("Tried to move the last bomb down in order");
             return;
