@@ -18,6 +18,25 @@ public class BombQueue
         bomb.SetOrderNumber(queue.Count - 1); // start with 0
     }
 
+    public void RemoveBomb(Bomb bomb)
+    {
+        RemoveBomb(bomb.orderNumber);
+    }
+
+    public void RemoveBomb(int number)
+    {
+        queue.RemoveAt(number);
+        for (int i = number; i < queue.Count - 1; i++)
+        {
+            queue[i].SetOrderNumber(queue[i].orderNumber - 1);
+        }
+    }
+
+    public void RemoveLast()
+    {
+        RemoveBomb(queue.Count - 1);
+    }
+
     public void ExplodeNextBomb()
     {
         if (currentIndex > queue.Count - 1)

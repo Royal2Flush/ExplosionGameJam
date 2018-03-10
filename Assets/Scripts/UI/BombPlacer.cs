@@ -40,7 +40,12 @@ public class BombPlacer : MonoBehaviour {
 			bombToDrop.GetComponent<Bomb>().SetTransparent (false);
 			bombToDrop = null;
 		}
-	}
+        
+        if (Input.GetMouseButtonDown(1) && bombToDrop) {
+            GameManager.BombQueue.RemoveLast();
+            Destroy(bombToDrop);
+        }
+    }
 
 	public void SelectBomb(GameObject bombPrefab) {
 		bombToDrop = Instantiate (bombPrefab);
