@@ -41,6 +41,13 @@ public class GameManager : MonoBehaviour {
     }
     public GameObject bombs;
 
+    public static SoundManager SoundManager {
+        get {
+            return instance.soundManager;
+        }
+    }
+    public SoundManager soundManager;
+
     public GameObject startButton;
 	public GameObject resetButton;
 
