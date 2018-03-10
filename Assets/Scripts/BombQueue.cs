@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class BombQueue : MonoBehaviour {
 
-    private Queue<Bomb> queue;
+    private List<Bomb> queue;
+    private int currentIndex;
 
 	// Use this for initialization
 	void Start () {
-        queue = new Queue<Bomb>();
+        queue = new List<Bomb>();
 	}
 	
 	// Update is called once per frame
@@ -18,50 +19,80 @@ public class BombQueue : MonoBehaviour {
 
     public void PushBomb(Bomb bomb)
     {
-        queue.Enqueue(bomb);
-        bomb.SetOrderNumber(queue.Count);
+        queue.Add(bomb);
+        bomb.SetOrderNumber(queue.Count - 1); // strat with 0
     }
 
     public void ExplodeNextBomb()
     {
-        Bomb currentBomb = queue.Dequeue();
-        currentBomb.Explode();
+        if (currentIndex > queue.Count)
+        {
+            Debug.Log("You tried to explode more bombs than there are.");
+            return;
+        }
+        queue[currentIndex].Explode();
+        currentIndex++;
     }
 
     public Bomb GetNextBomb()
     {
-        return queue.Peek();
+        return queue[currentIndex];
     }
 
-    /*public void ChangeOrderNumber(Bomb bomb, int newPosition)
+    public void OnGameStart()
     {
-        int oldPosition = bomb.orderNumber;
+        currentIndex = 0;
+    }
 
-        if (oldPosition == newPosition)
+    public void OnGameEnd()
+    {
+        ResetAllBombs();
+    }
+
+    public void MoveBombUpInOrder(Bomb bomb)
+    {
+        MoveBombUpInOrder(bomb.orderNumber);
+    }
+
+    public void MoveBombUpInOrder(int bombNumber)
+    {
+        if(bombNumber == 0)
         {
+            Debug.Log("Tried to move the first bomb up in order");
             return;
         }
-
-        Queue<Bomb> newQueue = new Queue<Bomb>();
-
-        int firstToChange = Mathf.Min(oldPosition, newPosition);
-        int lastToChange = Mathf.Max(oldPosition, newPosition);
-
-        for (int i = 0; i < firstToChange - 1; i++)
-        {
-            newQueue.Enqueue(queue.Dequeue());
-        }
-
-        if (firstToChange == newPosition)
-        {
-            newQueue.Enqueue(bomb);
-        }
-
-        for (int i = )
+        SwapBombs(bombNumber, bombNumber - 1);
     }
 
-    public void ChangeOrderNumber(int oldPosition, int newPosition)
+    public void MoveBombDownInOrder(Bomb bomb)
     {
-        
-    }*/
+        MoveBombDownInOrder(bomb.orderNumber);
+    }
+
+    public void MoveBombDownInOrder(int bombNumber)
+    {
+        if (bombNumber == queue.Count - 1)
+        {
+            Debug.Log("Tried to move the last bomb down in order");
+            return;
+        }
+        SwapBombs(bombNumber, bombNumber + 1);
+    }
+
+    private void SwapBombs(int bombNumberA, int bombNumberB)
+    {
+        Bomb tempBomb = queue[bombNumberA];
+        queue[bombNumberA] = queue[bombNumberB];
+        queue[bombNumberA].SetOrderNumber(bombNumberA);
+        queue[bombNumberB] = tempBomb;
+        queue[bombNumberB].SetOrderNumber(bombNumberB);
+    }
+
+    private void ResetAllBombs()
+    {
+        foreach (Bomb bomb in queue)
+        {
+            bomb.Reset();
+        }
+    }
 }

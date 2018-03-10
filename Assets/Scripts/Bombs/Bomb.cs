@@ -23,6 +23,8 @@ public abstract class Bomb : MonoBehaviour {
 
     public abstract void Explode();
 
+    public abstract void Reset();
+
     public void SetOrderNumber(int number)
     {
         orderNumber = number;
