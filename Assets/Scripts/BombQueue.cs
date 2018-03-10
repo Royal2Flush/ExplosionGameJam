@@ -26,6 +26,7 @@ public class BombQueue
             return;
         }
         queue[currentIndex].Explode();
+		queue[currentIndex].SetLabelActive(false);
         currentIndex++;
     }
 

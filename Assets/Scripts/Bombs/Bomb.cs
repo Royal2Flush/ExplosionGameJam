@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Bomb : MonoBehaviour {
-    public float force;
-
+    
+	public float force;
     public int orderNumber { get; private set; }
-
     public Animator animator;
+
+	private TextMesh infoText;
 
 
 	// Use this for initialization
 	void Start () {
-
 	}
 	
 	// Update is called once per frame
@@ -29,8 +29,21 @@ public abstract class Bomb : MonoBehaviour {
     {
         orderNumber = number;
 
-        // !! set GUI number 
+		if (infoText == null) {
+			infoText = GetComponentInChildren<TextMesh> ();
+		}
+
+		infoText.text = number.ToString ();
     }
+
+	public void SetLabelActive (bool isActive)
+	{
+		if (isActive) {
+			infoText.color = new Color (0.0f, 0.0f, 0.0f, 1.0f);
+		} else {
+			infoText.color = new Color (0.0f, 0.0f, 0.0f, 0.3f);
+		}
+	}
 
 	public void SetTransparent (bool trans) {
 
