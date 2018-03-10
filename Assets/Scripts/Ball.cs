@@ -39,4 +39,10 @@ public class Ball : MonoBehaviour {
         rigidbody.simulated = true;
         sr.sprite = playerAlive;
     }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.tag == "Wall") {
+            GameManager.SoundManager.HitWall();
+        }
+    }
 }
