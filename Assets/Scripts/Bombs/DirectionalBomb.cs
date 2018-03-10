@@ -12,8 +12,6 @@ public class DirectionalBomb : Bomb {
         ballPosition = GameManager.Ball.transform.position;
 
         GameManager.Ball.AddForce(calculateForce());
-
-        Destroy(gameObject);
     }
 
     Vector2 calculateForce() {

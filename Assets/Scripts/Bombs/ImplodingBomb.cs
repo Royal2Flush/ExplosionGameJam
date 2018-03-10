@@ -12,8 +12,6 @@ public class ImplodingBomb : Bomb {
         float distance = Vector2.Distance(ballPosition, transform.position);
 
         GameManager.Ball.AddForce(direction * (1 / distance * force));
-
-        Destroy(gameObject);
     }
 
     public override void Reset() {
