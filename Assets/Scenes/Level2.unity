@@ -153,6 +153,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &62021664 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1358999095950494, guid: ea773eb3eb6372744b551a91337df2d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 248775613}
 --- !u!114 &74502786 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114341129443922680, guid: 5a097a3f20f538043b4cd1e657fab911,
@@ -209,11 +214,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 887de8a3c56900344b0e08fafe34bffa, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &179560352 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1482495232016296, guid: ea773eb3eb6372744b551a91337df2d8,
-    type: 2}
-  m_PrefabInternal: {fileID: 248775613}
 --- !u!1001 &198291751
 Prefab:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 287301841}
+      objectReference: {fileID: 51009938}
     - target: {fileID: 114859455103696386, guid: ea773eb3eb6372744b551a91337df2d8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -457,6 +457,21 @@ Prefab:
       propertyPath: numBombs
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114282477798426080, guid: ea773eb3eb6372744b551a91337df2d8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114035132044675354, guid: ea773eb3eb6372744b551a91337df2d8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 287301841}
+    - target: {fileID: 114035132044675354, guid: ea773eb3eb6372744b551a91337df2d8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea773eb3eb6372744b551a91337df2d8, type: 2}
   m_IsPrefabParent: 0
@@ -492,7 +507,7 @@ MonoBehaviour:
   bombs: {fileID: 1124678178}
   soundManager: {fileID: 1894737931}
   startButton: {fileID: 728644340}
-  resetButton: {fileID: 179560352}
+  resetButton: {fileID: 62021664}
 --- !u!4 &287301842
 Transform:
   m_ObjectHideFlags: 0
