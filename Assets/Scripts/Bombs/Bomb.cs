@@ -33,7 +33,7 @@ public abstract class Bomb : MonoBehaviour {
 			infoText = GetComponentInChildren<TextMesh> ();
 		}
 
-		infoText.text = number.ToString ();
+		infoText.text = (number + 1).ToString ();
     }
 
 	public void SetLabelActive (bool isActive)
