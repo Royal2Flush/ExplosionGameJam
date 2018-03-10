@@ -30,5 +30,6 @@ public class TrapBomb : Bomb {
 
     public override void Reset() {
         animator.SetTrigger("Reset");
+        SetLabelActive(true);
     }
 }

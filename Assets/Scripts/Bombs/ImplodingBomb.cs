@@ -19,5 +19,6 @@ public class ImplodingBomb : Bomb {
 
     public override void Reset() {
         animator.SetTrigger("Reset");
+        SetLabelActive(true);
     }
 }

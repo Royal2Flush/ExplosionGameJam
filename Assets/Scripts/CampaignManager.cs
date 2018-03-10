@@ -5,15 +5,15 @@ using UnityEngine;
 public class CampaignManager : MonoBehaviour
 {
     private const int firstSceneIndex = 1;
-
-    public static CampaignManager s_instance;
+    
     public static CampaignManager instance { get; private set; }
     private int currentLevelIndex;
 
     void Start()
     {
+        if(instance) { Destroy(gameObject); }
         DontDestroyOnLoad(gameObject);
-        s_instance = this;
+        instance = this;
 
         currentLevelIndex = firstSceneIndex;
     }

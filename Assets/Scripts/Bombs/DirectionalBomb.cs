@@ -35,5 +35,6 @@ public class DirectionalBomb : Bomb {
 
     public override void Reset() {
         animator.SetTrigger("Reset");
+        SetLabelActive(true);
     }
 }

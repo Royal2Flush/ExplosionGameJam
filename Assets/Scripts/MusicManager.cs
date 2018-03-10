@@ -28,7 +28,7 @@ public class MusicManager : MonoBehaviour {
 
     IEnumerator ResumeMusic() {
         yield return new WaitForSeconds(finishSound.length + 0.5f);
-        CampaignManager.s_instance.LoadNextLevel();
+        CampaignManager.instance.LoadNextLevel();
         audioSource.clip = music;
         audioSource.loop = true;
         audioSource.Play();
