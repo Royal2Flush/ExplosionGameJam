@@ -33,5 +33,9 @@ public class CampaignManager : MonoBehaviour
         currentLevelIndex = levelIndex;
         UnityEngine.SceneManagement.SceneManager.LoadScene(levelIndex);
     }
+
+	public void ReloadLevel () {
+		UnityEngine.SceneManagement.SceneManager.LoadScene(currentLevelIndex);
+	}
 }
 
