@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
         InputManager.enabled = false;
         bombQueue = new BombQueue();
     }
-		
+
     public void StartGame() {
         startButton.SetActive(false);
 		resetButton.SetActive(true);
@@ -61,5 +61,6 @@ public class GameManager : MonoBehaviour {
 		resetButton.SetActive(false);
         BombQueue.OnGameEnd();
         InputManager.enabled = true;
+        Ball.Reset();
     }
 }

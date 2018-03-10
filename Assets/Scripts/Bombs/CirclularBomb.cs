@@ -15,6 +15,6 @@ public class CirclularBomb : Bomb {
     }
 		
     public override void Reset() {
-        throw new NotImplementedException();
+
     }
 }
