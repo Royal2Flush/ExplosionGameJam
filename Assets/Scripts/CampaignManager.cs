@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CampaignManager : MonoBehaviour
 {
@@ -31,11 +32,11 @@ public class CampaignManager : MonoBehaviour
         }
 
         currentLevelIndex = levelIndex;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(levelIndex);
     }
 
 	public void ReloadLevel () {
-		UnityEngine.SceneManagement.SceneManager.LoadScene(currentLevelIndex);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
 
