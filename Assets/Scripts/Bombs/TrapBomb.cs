@@ -20,9 +20,9 @@ public class TrapBomb : Bomb {
     {
         // trigger animation
 
-        if((LevelManager.Ball.transform.position - gameObject.transform.position).magnitude < catchRadius)
+        if((GameManager.Ball.transform.position - gameObject.transform.position).magnitude < catchRadius)
         {
-            LevelManager.Ball.rigidbody.velocity = new Vector2(0, 0);
+            GameManager.Ball.rigidbody.velocity = new Vector2(0, 0);
         }
     }
 }
