@@ -7,9 +7,10 @@ public abstract class Bomb : MonoBehaviour {
 
     public int orderNumber { get; private set; }
 
+
 	// Use this for initialization
 	void Start () {
-        
+
 	}
 	
 	// Update is called once per frame
@@ -19,6 +20,7 @@ public abstract class Bomb : MonoBehaviour {
         }
 	}
 
+
     public abstract void Explode();
 
     public void SetOrderNumber(int number)
@@ -27,4 +29,13 @@ public abstract class Bomb : MonoBehaviour {
 
         // !! set GUI number 
     }
+
+	public void SetTransparent (bool trans) {
+
+		if (trans) {
+			//GetComponent<SpriteRenderer> ().color = new Color (1f,1f,1f,0.5f);
+		} else {
+			//GetComponent<SpriteRenderer> ().color = new Color (1f,1f,1f,0.5f);
+		}
+	}
 }
