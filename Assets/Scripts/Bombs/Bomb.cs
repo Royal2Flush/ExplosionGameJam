@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class Bomb : MonoBehaviour {
     public float force;
 
+    public int orderNumber { get; private set; }
+
 	// Use this for initialization
 	void Start () {
         
@@ -18,4 +20,11 @@ public abstract class Bomb : MonoBehaviour {
 	}
 
     public abstract void Explode();
+
+    public void SetOrderNumber(int number)
+    {
+        orderNumber = number;
+
+        // !! set GUI number 
+    }
 }
