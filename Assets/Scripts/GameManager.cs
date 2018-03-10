@@ -46,19 +46,20 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
         InputManager.enabled = false;
+        bombQueue = new BombQueue();
     }
 		
     public void StartGame() {
         startButton.SetActive(false);
 		resetButton.SetActive(true);
-
+        BombQueue.OnGameStart();
         InputManager.enabled = true;
     }
 
 	public void ResetGame() {
 		startButton.SetActive(true);
 		resetButton.SetActive(false);
-
+        BombQueue.OnGameEnd();
         InputManager.enabled = true;
     }
 }

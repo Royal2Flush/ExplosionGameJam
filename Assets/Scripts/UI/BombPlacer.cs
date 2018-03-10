@@ -45,7 +45,9 @@ public class BombPlacer : MonoBehaviour {
 	public void SelectBomb(GameObject bombPrefab) {
 		bombToDrop = Instantiate (bombPrefab);
         bombToDrop.transform.SetParent(GameManager.Bombs.transform);
-		bombToDrop.GetComponent<Bomb> ().SetTransparent (true);
+        Bomb bombComponent = bombToDrop.GetComponent<Bomb>();
+        bombComponent.SetTransparent (true);
+        GameManager.BombQueue.PushBomb(bombComponent);
 
 		// Enum in list
 		bombs.Add (bombToDrop);
