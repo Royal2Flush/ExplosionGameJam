@@ -293,11 +293,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89764908632d9cb489fa35649afb5952, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &179560352 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1482495232016296, guid: ea773eb3eb6372744b551a91337df2d8,
-    type: 2}
-  m_PrefabInternal: {fileID: 248775613}
 --- !u!1001 &198291751
 Prefab:
   m_ObjectHideFlags: 0
@@ -484,7 +479,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 287301841}
+      objectReference: {fileID: 51009938}
     - target: {fileID: 114859455103696386, guid: ea773eb3eb6372744b551a91337df2d8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -541,6 +536,21 @@ Prefab:
       propertyPath: numBombs
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114035132044675354, guid: ea773eb3eb6372744b551a91337df2d8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 287301841}
+    - target: {fileID: 114035132044675354, guid: ea773eb3eb6372744b551a91337df2d8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 114282477798426080, guid: ea773eb3eb6372744b551a91337df2d8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea773eb3eb6372744b551a91337df2d8, type: 2}
   m_IsPrefabParent: 0
@@ -576,7 +586,7 @@ MonoBehaviour:
   bombs: {fileID: 1124678178}
   soundManager: {fileID: 1894737931}
   startButton: {fileID: 728644340}
-  resetButton: {fileID: 179560352}
+  resetButton: {fileID: 1157148248}
 --- !u!4 &287301842
 Transform:
   m_ObjectHideFlags: 0
@@ -880,6 +890,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89764908632d9cb489fa35649afb5952, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1157148248 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1358999095950494, guid: ea773eb3eb6372744b551a91337df2d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 248775613}
 --- !u!1001 &1184283075
 Prefab:
   m_ObjectHideFlags: 0
