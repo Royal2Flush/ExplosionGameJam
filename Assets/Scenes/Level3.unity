@@ -345,7 +345,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 51009938}
+      objectReference: {fileID: 287301841}
     - target: {fileID: 114859455103696386, guid: ea773eb3eb6372744b551a91337df2d8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -420,7 +420,7 @@ Prefab:
     - target: {fileID: 114282477798426080, guid: ea773eb3eb6372744b551a91337df2d8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReloadLevel
+      value: ResetLevel
       objectReference: {fileID: 0}
     - target: {fileID: 114785002632514864, guid: ea773eb3eb6372744b551a91337df2d8,
         type: 2}
@@ -898,7 +898,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 2.73
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -921,7 +921,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1894737924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -0.23, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
