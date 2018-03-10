@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CirclularBomb : Bomb {
+public class ImplodingBomb : Bomb {
     public override void Explode() {
         Vector2 ballPosition = GameManager.Ball.transform.position;
 
-        Vector2 direction = (ballPosition - (Vector2)transform.position).normalized;
+        Vector2 direction = (ballPosition - (Vector2)transform.position).normalized * -1;
 
         float distance = Vector2.Distance(ballPosition, transform.position);
 

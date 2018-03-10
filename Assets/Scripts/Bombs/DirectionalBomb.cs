@@ -30,4 +30,8 @@ public class DirectionalBomb : Bomb {
         
         return (direction * rotationMultiplier * distanceMultiplier);
     }
+
+    public override void Reset() {
+        throw new NotImplementedException();
+    }
 }
