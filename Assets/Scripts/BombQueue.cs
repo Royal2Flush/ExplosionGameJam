@@ -20,7 +20,7 @@ public class BombQueue
 
     public void ExplodeNextBomb()
     {
-        if (currentIndex > queue.Count)
+        if (currentIndex > queue.Count - 1)
         {
             Debug.Log("You tried to explode more bombs than there are.");
             return;
