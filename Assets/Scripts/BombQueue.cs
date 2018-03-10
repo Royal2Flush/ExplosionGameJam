@@ -16,15 +16,52 @@ public class BombQueue : MonoBehaviour {
 		
 	}
 
-    public void pushBomb(Bomb bomb)
+    public void PushBomb(Bomb bomb)
     {
         queue.Enqueue(bomb);
         bomb.SetOrderNumber(queue.Count);
     }
 
-    public void explodeNextBomb()
+    public void ExplodeNextBomb()
     {
         Bomb currentBomb = queue.Dequeue();
         currentBomb.Explode();
     }
+
+    public Bomb GetNextBomb()
+    {
+        return queue.Peek();
+    }
+
+    /*public void ChangeOrderNumber(Bomb bomb, int newPosition)
+    {
+        int oldPosition = bomb.orderNumber;
+
+        if (oldPosition == newPosition)
+        {
+            return;
+        }
+
+        Queue<Bomb> newQueue = new Queue<Bomb>();
+
+        int firstToChange = Mathf.Min(oldPosition, newPosition);
+        int lastToChange = Mathf.Max(oldPosition, newPosition);
+
+        for (int i = 0; i < firstToChange - 1; i++)
+        {
+            newQueue.Enqueue(queue.Dequeue());
+        }
+
+        if (firstToChange == newPosition)
+        {
+            newQueue.Enqueue(bomb);
+        }
+
+        for (int i = )
+    }
+
+    public void ChangeOrderNumber(int oldPosition, int newPosition)
+    {
+        
+    }*/
 }
