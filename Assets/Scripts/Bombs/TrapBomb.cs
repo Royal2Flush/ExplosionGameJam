@@ -24,9 +24,11 @@ public class TrapBomb : Bomb {
         {
             GameManager.Ball.rigidbody.velocity = new Vector2(0, 0);
         }
+
+        animator.SetTrigger("Explode");
     }
 
     public override void Reset() {
-        throw new System.NotImplementedException();
+        animator.SetTrigger("Reset");
     }
 }
