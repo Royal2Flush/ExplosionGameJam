@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BombPlacer : MonoBehaviour {
 
-	private List<GameObject> bombs = new List<GameObject>();
+	//private List<GameObject> bombs = new List<GameObject>();
 	private GameObject bombToDrop;
 
 	// Use this for initialization
@@ -37,33 +37,42 @@ public class BombPlacer : MonoBehaviour {
 		// Place bomb on click
 		if (Input.GetMouseButtonDown(0))
 		{
-			bombToDrop.GetComponent<Bomb>().SetTransparent (false);
-			bombToDrop = null;
+            RegisterBomb();
+            bombToDrop = null;
 		}
         
         if (Input.GetMouseButtonDown(1) && bombToDrop) {
-            GameManager.BombQueue.RemoveLast();
-            Destroy(bombToDrop);
+            DeselectBomb();
         }
     }
 
-	public void SelectBomb(GameObject bombPrefab) {
-		bombToDrop = Instantiate (bombPrefab);
+    void RegisterBomb() {
+        bombToDrop.GetComponent<Bomb>().SetTransparent(false);
+
         bombToDrop.transform.SetParent(GameManager.Bombs.transform);
+        GameManager.BombQueue.PushBomb(bombToDrop.GetComponent<Bomb>());
+    }
+
+    public void SelectBomb(GameObject bombPrefab) {
+		bombToDrop = Instantiate (bombPrefab);
         Bomb bombComponent = bombToDrop.GetComponent<Bomb>();
         bombComponent.SetTransparent (true);
-        GameManager.BombQueue.PushBomb(bombComponent);
 
 		// Enum in list
-		bombs.Add (bombToDrop);
-		this.UpdateBombEnumeration ();
+		//bombs.Add (bombToDrop);
+		//this.UpdateBombEnumeration ();
 	}
 
-	private void UpdateBombEnumeration() {
+    void DeselectBomb() {
+        Destroy(bombToDrop);
+        BombButton.ReturnBomb();
+    }
+
+/*	private void UpdateBombEnumeration() {  //Wofür ist das?
 		int i = 1;
 		foreach (GameObject bomb in this.bombs) {
 			Debug.Log ("Bomb: " + i);
 			i++;
 		}
-	}
+	}*/
 }

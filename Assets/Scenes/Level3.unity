@@ -229,6 +229,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &240056414 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1358999095950494, guid: ea773eb3eb6372744b551a91337df2d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 248775613}
 --- !u!1001 &248775613
 Prefab:
   m_ObjectHideFlags: 0
@@ -430,11 +435,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea773eb3eb6372744b551a91337df2d8, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &248775614 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1358999095950494, guid: ea773eb3eb6372744b551a91337df2d8,
-    type: 2}
-  m_PrefabInternal: {fileID: 248775613}
 --- !u!1 &287301840
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
   bombs: {fileID: 1124678178}
   soundManager: {fileID: 1894737931}
   startButton: {fileID: 728644340}
-  resetButton: {fileID: 248775614}
+  resetButton: {fileID: 240056414}
 --- !u!4 &287301842
 Transform:
   m_ObjectHideFlags: 0

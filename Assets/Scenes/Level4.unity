@@ -222,11 +222,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1788179074}
   m_Script: {fileID: 11500000, guid: b565df84f58b69e4c9f85be9347483c2, type: 3}
---- !u!1 &179560352 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1482495232016296, guid: ea773eb3eb6372744b551a91337df2d8,
-    type: 2}
-  m_PrefabInternal: {fileID: 248775613}
 --- !u!1001 &198291751
 Prefab:
   m_ObjectHideFlags: 0
@@ -498,6 +493,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea773eb3eb6372744b551a91337df2d8, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &248775614 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1358999095950494, guid: ea773eb3eb6372744b551a91337df2d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 248775613}
 --- !u!1 &287301840
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +530,7 @@ MonoBehaviour:
   bombs: {fileID: 1124678178}
   soundManager: {fileID: 1894737931}
   startButton: {fileID: 728644340}
-  resetButton: {fileID: 179560352}
+  resetButton: {fileID: 248775614}
 --- !u!4 &287301842
 Transform:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class BombButton : MonoBehaviour {
 
 	private Text infoText;
 
+    static BombButton lastClicked;  //This is a temporary fix, to enable returning bombs with leftclick. Maybe i will change this.
+
 	// Use this for initialization
 	void Start () {
 		infoText = GetComponentInChildren<Text> ();
@@ -21,6 +23,7 @@ public class BombButton : MonoBehaviour {
 	}
 
 	public void placedBomb () {
+        lastClicked = this;
 		numBombs -= 1;
 		updateInfoText ();
 	}
@@ -33,4 +36,9 @@ public class BombButton : MonoBehaviour {
 
 		infoText.text = numBombs.ToString();
 	}
+
+    public static void ReturnBomb() {
+        lastClicked.numBombs++;
+        lastClicked.updateInfoText();
+    }
 }

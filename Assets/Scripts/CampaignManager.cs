@@ -8,20 +8,17 @@ public class CampaignManager : MonoBehaviour
     private const int firstSceneIndex = 0;
     
     public static CampaignManager instance { get; private set; }
-    private int currentLevelIndex;
 
     void Start()
     {
         if(instance) { Destroy(gameObject); }
         DontDestroyOnLoad(gameObject);
         instance = this;
-
-        currentLevelIndex = firstSceneIndex;
     }
 
     public void LoadNextLevel()
     {
-        LoadLevel(currentLevelIndex + 1);
+        LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void LoadLevel(int levelIndex)
@@ -30,8 +27,7 @@ public class CampaignManager : MonoBehaviour
         {
             Debug.LogWarning("Loading a scene that has smaller index than the first scene!");
         }
-
-        currentLevelIndex = levelIndex;
+        
         SceneManager.LoadScene(levelIndex);
     }
 
