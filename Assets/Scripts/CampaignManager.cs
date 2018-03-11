@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CampaignManager : MonoBehaviour
 {
-    private const int firstSceneIndex = 1;
+    private const int firstSceneIndex = 0;
     
     public static CampaignManager instance { get; private set; }
     private int currentLevelIndex;
