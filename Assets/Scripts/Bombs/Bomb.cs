@@ -53,4 +53,10 @@ public abstract class Bomb : MonoBehaviour {
 			//GetComponent<SpriteRenderer> ().color = new Color (1f,1f,1f,0.5f);
 		}
 	}
+
+    protected float ForceRelativeToDistance(float distance) {
+        print(1 / distance * force);
+        print(1 / Mathf.Clamp(distance, 1, Mathf.Infinity) * force);
+        return (1 / Mathf.Clamp(distance, 1, Mathf.Infinity) * force);
+    }
 }

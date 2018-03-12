@@ -26,10 +26,8 @@ public class DirectionalBomb : Bomb {
 
         float relativeDirection = Mathf.Abs(ballDirection - bombDirection);
         float rotationMultiplier = Mathf.Clamp((explosionRadius - relativeDirection) / explosionRadius, 0, Mathf.Infinity);
-
-        float distanceMultiplier = 1 / distance * force;
-        
-        return (direction * rotationMultiplier * distanceMultiplier);
+                
+        return (direction * rotationMultiplier * ForceRelativeToDistance(distance));
     }
 
 

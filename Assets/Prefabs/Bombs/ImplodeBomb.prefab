@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97e456b2d831c94eb96c86144dc9081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 200
+  force: 400
   animator: {fileID: 95527839706983634}
 --- !u!212 &212752379214737262
 SpriteRenderer:
