@@ -71,15 +71,10 @@ public class BombPlacer : MonoBehaviour {
 
     public void PlaceBomb()
     {
-        if (bombComponent.orderNumber < 0) // bomb not registered yet
-        {
-            GameManager.BombQueue.PushBomb(bombComponent);
-        }
-
         bombComponent.Place();
         bombToDrop = null;
 
-        Debug.Log("Placing Bomb");
+        Debug.Log("Placing Bomb with order number " + bombComponent.orderNumber.ToString());
     }
 
     public void PickBombFromMenu(GameObject bombPrefab)
@@ -93,7 +88,9 @@ public class BombPlacer : MonoBehaviour {
 
         bombComponent = bombToDrop.GetComponent<Bomb>();
         bombComponent.PickUp();
-	}
+
+        GameManager.BombQueue.PushBomb(bombComponent);
+    }
 
     public void PickBombFromWorld(Bomb bomb)
     {
@@ -108,15 +105,27 @@ public class BombPlacer : MonoBehaviour {
 
         skipInputHandlingThisFrame = true;
 
-        Debug.Log("Picking up bomb from world");
+        Debug.Log("Picking up bomb from world with order number " + bombComponent.orderNumber.ToString());
     }
 
     private void ReturnBombToMenu()
     {
-        GameManager.BombQueue.RemoveBomb(bombComponent);
+        if (bombComponent.orderNumber >= 0) // if not, it's not in the bombqueue yet, i.e. it was picked from menu
+        {
+            GameManager.BombQueue.RemoveBomb(bombComponent);
+        }
+
+        foreach(BombButton button in GameManager.BombButtons)
+        {
+            if (button.GetBombType() == bombComponent.GetType())
+            {
+                button.AddBomb();
+                break;
+            }
+        }
+
         bombComponent = null;
         Destroy(bombToDrop);
-        BombButton.ReturnBomb();
     }
 
 /*	private void UpdateBombEnumeration() {  //Wofür ist das?

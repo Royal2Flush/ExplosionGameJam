@@ -25,11 +25,16 @@ public class BombQueue
 
     public void RemoveBomb(int number)
     {
+        if (number < 0 || number >= queue.Count)
+        {
+            Debug.LogError("Trying to remove a bomb not in the queue from the BombQueue!");
+            return;
+        }
         queue.RemoveAt(number);
         for (int i = number; i < queue.Count; i++)
         {
-            Debug.Log("Updating order number of former bomb " + i.ToString());
-            queue[i].SetOrderNumber(queue[i].orderNumber - 1);
+            Debug.Log("Updating order number of new bomb " + i.ToString());
+            queue[i].SetOrderNumber(i);
         }
     }
 

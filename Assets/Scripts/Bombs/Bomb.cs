@@ -15,13 +15,11 @@ public abstract class Bomb : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        orderNumber = -1;
-        SetLabelActive(false);
+        //SetLabelActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
 	}
 
     public void OnMouseDown()
@@ -50,6 +48,7 @@ public abstract class Bomb : MonoBehaviour {
     {
         orderNumber = number;
 		infoText.text = (orderNumber + 1).ToString ();
+        Debug.Log("Changing order number");
     }
 
     public void PickUp()

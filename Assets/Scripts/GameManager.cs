@@ -68,6 +68,15 @@ public class GameManager : MonoBehaviour {
     }
     public SoundManager soundManager;
 
+    public static BombButton[] BombButtons
+    {
+        get
+        {
+            return instance.bombButtons;
+        }
+    }
+    public BombButton[] bombButtons;
+
     public GameObject startButton;
 	public GameObject resetButton;
 
@@ -76,6 +85,7 @@ public class GameManager : MonoBehaviour {
 
         InputManager.enabled = false;
         bombQueue = new BombQueue();
+        bombButtons = GameObject.Find("BottomBar").GetComponentsInChildren<BombButton>();
     }
 
     public void StartGame() {
