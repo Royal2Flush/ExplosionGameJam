@@ -93,6 +93,10 @@ public class GameManager : MonoBehaviour {
 
         startButton.SetActive(false);
 		resetButton.SetActive(true);
+        foreach(BombButton button in bombButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
         BombQueue.OnGameStart();
         InputManager.enabled = true;
     }
@@ -102,8 +106,12 @@ public class GameManager : MonoBehaviour {
 
 		startButton.SetActive(true);
 		resetButton.SetActive(false);
+        foreach (BombButton button in bombButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
         BombQueue.OnGameEnd();
-        InputManager.enabled = true;
+        InputManager.enabled = false;
         Ball.Reset();
     }
 
