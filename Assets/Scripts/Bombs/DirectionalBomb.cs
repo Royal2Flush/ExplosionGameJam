@@ -6,18 +6,19 @@ using UnityEngine;
 public class DirectionalBomb : Bomb {
 
     public float explosionRadius = 30;
-    Vector2 ballPosition;
 
-    public override void Explode() {
-        ballPosition = GameManager.Ball.transform.position;
+    public override void Explode()
+    {
+        base.Explode();
 
-        GameManager.Ball.AddForce(calculateForce());
+        GameManager.Ball.AddForce(CalculateForce());
 
         GameManager.SoundManager.Explosion();
         animator.SetTrigger("Explode");
     }
 
-    Vector2 calculateForce() {
+    private Vector2 CalculateForce()
+    {
         Vector2 direction = (ballPosition - (Vector2)transform.position).normalized;
         float distance = Vector2.Distance(ballPosition, transform.position);
 
@@ -30,11 +31,5 @@ public class DirectionalBomb : Bomb {
         float distanceMultiplier = 1 / distance * force;
         
         return (direction * rotationMultiplier * distanceMultiplier);
-    }
-
-
-    public override void Reset() {
-        animator.SetTrigger("Reset");
-        SetLabelActive(true);
     }
 }

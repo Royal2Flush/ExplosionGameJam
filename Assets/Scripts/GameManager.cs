@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Gamestate { Placing, Playing }
+
 public class GameManager : MonoBehaviour {
     public static GameManager s_instance;
     public static GameManager instance {
@@ -12,6 +14,15 @@ public class GameManager : MonoBehaviour {
             return s_instance;
         }
     }
+
+    public static Gamestate Gamestate
+    {
+        get
+        {
+            return instance.gamestate;
+        }
+    }
+    public Gamestate gamestate;
 
     public static Ball Ball {
         get {
@@ -26,6 +37,15 @@ public class GameManager : MonoBehaviour {
         }
     }
     public BombQueue bombQueue;
+
+    public static BombPlacer BombPlacer
+    {
+        get
+        {
+            return instance.bombPlacer;
+        }
+    }
+    public BombPlacer bombPlacer;
 
     public static InputManager InputManager {
         get {
@@ -52,11 +72,15 @@ public class GameManager : MonoBehaviour {
 	public GameObject resetButton;
 
     void Start() {
+        gamestate = Gamestate.Placing;
+
         InputManager.enabled = false;
         bombQueue = new BombQueue();
     }
 
     public void StartGame() {
+        gamestate = Gamestate.Playing;
+
         startButton.SetActive(false);
 		resetButton.SetActive(true);
         BombQueue.OnGameStart();
@@ -64,6 +88,8 @@ public class GameManager : MonoBehaviour {
     }
 
 	public void ResetGame() {
+        gamestate = Gamestate.Placing;
+
 		startButton.SetActive(true);
 		resetButton.SetActive(false);
         BombQueue.OnGameEnd();

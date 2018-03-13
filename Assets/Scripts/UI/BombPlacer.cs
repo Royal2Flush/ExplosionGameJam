@@ -5,65 +5,116 @@ using UnityEngine.UI;
 
 public class BombPlacer : MonoBehaviour {
 
-	//private List<GameObject> bombs = new List<GameObject>();
 	private GameObject bombToDrop;
+    private Bomb bombComponent;
+    private bool skipInputHandlingThisFrame;
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+    {
+        skipInputHandlingThisFrame = false;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (bombToDrop == null) {
+	void Update ()
+    {
+		if (bombToDrop == null) // currently not placing a bomb
+        {
 			return;
 		}
 
-		// Mouse pos in world coordinates
-		Vector3 mousePos = new Vector3(
-			Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
-			Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0
-		);
+        MoveBomb();
 
-		// Rotate bomb
-		if (Input.GetKey(KeyCode.LeftShift)) {
-			bombToDrop.transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - bombToDrop.transform.position);
-		
-		// Bomb locked to mouse pos
-		} else {
-			bombToDrop.transform.position = mousePos;
-		}
+		if(!skipInputHandlingThisFrame)
+        {
+            HandleInput();
+        }
 
-		// Place bomb on click
-		if (Input.GetMouseButtonDown(0))
-		{
-            RegisterBomb();
-            bombToDrop = null;
-		}
-        
-        if (Input.GetMouseButtonDown(1) && bombToDrop) {
-            DeselectBomb();
+        skipInputHandlingThisFrame = false;
+    }
+
+    private void MoveBomb()
+    {
+        // Mouse pos in world coordinates
+        Vector3 mousePos = new Vector3(
+            Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
+            Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0
+            );
+
+        // Rotate bomb
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            bombToDrop.transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - bombToDrop.transform.position);
+
+            // Bomb locked to mouse pos
+        }
+        else
+        {
+            bombToDrop.transform.position = mousePos;
         }
     }
 
-    void RegisterBomb() {
-        bombToDrop.GetComponent<Bomb>().SetTransparent(false);
+    private void HandleInput()
+    {
+        // Place bomb on click
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlaceBomb();
+        }
 
-        bombToDrop.transform.SetParent(GameManager.Bombs.transform);
-        GameManager.BombQueue.PushBomb(bombToDrop.GetComponent<Bomb>());
+        // return bomb to menu on right click
+        if (Input.GetMouseButtonDown(1))
+        {
+            ReturnBombToMenu();
+        }
     }
 
-    public void SelectBomb(GameObject bombPrefab) {
-		bombToDrop = Instantiate (bombPrefab);
-        Bomb bombComponent = bombToDrop.GetComponent<Bomb>();
-        bombComponent.SetTransparent (true);
+    public void PlaceBomb()
+    {
+        if (bombComponent.orderNumber < 0) // bomb not registered yet
+        {
+            GameManager.BombQueue.PushBomb(bombComponent);
+        }
 
-		// Enum in list
-		//bombs.Add (bombToDrop);
-		//this.UpdateBombEnumeration ();
+        bombComponent.Place();
+        bombToDrop = null;
+
+        Debug.Log("Placing Bomb");
+    }
+
+    public void PickBombFromMenu(GameObject bombPrefab)
+    {
+        if (bombToDrop)
+        {
+            return;
+        }
+		bombToDrop = Instantiate (bombPrefab);
+        bombToDrop.transform.SetParent(GameManager.Bombs.transform);
+
+        bombComponent = bombToDrop.GetComponent<Bomb>();
+        bombComponent.PickUp();
 	}
 
-    void DeselectBomb() {
+    public void PickBombFromWorld(Bomb bomb)
+    {
+        if (bombToDrop)
+        {
+            return;
+        }
+        bombToDrop = bomb.gameObject;
+        bombComponent = bomb;
+
+        bombComponent.PickUp();
+
+        skipInputHandlingThisFrame = true;
+
+        Debug.Log("Picking up bomb from world");
+    }
+
+    private void ReturnBombToMenu()
+    {
+        GameManager.BombQueue.RemoveBomb(bombComponent);
+        bombComponent = null;
         Destroy(bombToDrop);
         BombButton.ReturnBomb();
     }

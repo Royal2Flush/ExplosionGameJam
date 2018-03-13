@@ -18,18 +18,11 @@ public class TrapBomb : Bomb {
 
     public override void Explode()
     {
-        // trigger animation
+        base.Explode();
 
-        if((GameManager.Ball.transform.position - gameObject.transform.position).magnitude < catchRadius)
+        if((ballPosition - (Vector2)gameObject.transform.position).magnitude < catchRadius)
         {
             GameManager.Ball.rigidbody.velocity = new Vector2(0, 0);
         }
-
-        animator.SetTrigger("Explode");
-    }
-
-    public override void Reset() {
-        animator.SetTrigger("Reset");
-        SetLabelActive(true);
     }
 }

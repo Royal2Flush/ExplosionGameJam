@@ -14,7 +14,7 @@ public class BombButton : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		infoText = GetComponentInChildren<Text> ();
-		updateInfoText ();
+		UpdateInfoText ();
 	}
 	
 	// Update is called once per frame
@@ -22,23 +22,27 @@ public class BombButton : MonoBehaviour {
 		
 	}
 
-	public void placedBomb () {
+	public void HandleClick () {
         lastClicked = this;
 		numBombs -= 1;
-		updateInfoText ();
+		UpdateInfoText ();
 	}
 
-	private void updateInfoText () {
+	private void UpdateInfoText () {
 		if (numBombs <= 0) {
 			gameObject.SetActive (false);
 			return;
 		}
+        else
+        {
+            gameObject.SetActive(true);
+        }
 
 		infoText.text = numBombs.ToString();
 	}
 
     public static void ReturnBomb() {
         lastClicked.numBombs++;
-        lastClicked.updateInfoText();
+        lastClicked.UpdateInfoText();
     }
 }

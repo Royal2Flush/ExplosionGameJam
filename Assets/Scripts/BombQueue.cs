@@ -26,8 +26,9 @@ public class BombQueue
     public void RemoveBomb(int number)
     {
         queue.RemoveAt(number);
-        for (int i = number; i < queue.Count - 1; i++)
+        for (int i = number; i < queue.Count; i++)
         {
+            Debug.Log("Updating order number of former bomb " + i.ToString());
             queue[i].SetOrderNumber(queue[i].orderNumber - 1);
         }
     }
@@ -45,7 +46,6 @@ public class BombQueue
             return;
         }
         queue[currentIndex].Explode();
-		queue[currentIndex].SetLabelActive(false);
         currentIndex++;
     }
 

@@ -8,11 +8,15 @@ public abstract class Bomb : MonoBehaviour {
     public int orderNumber { get; private set; }
     public Animator animator;
 
-	private TextMesh infoText;
+    protected Vector2 ballPosition;
+    protected TextMesh infoText;
 
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        orderNumber = -1;
+        SetLabelActive(false);
 	}
 	
 	// Update is called once per frame
@@ -20,32 +24,65 @@ public abstract class Bomb : MonoBehaviour {
 
 	}
 
+    public void OnMouseDown()
+    {
+        if (GameManager.Gamestate == Gamestate.Placing)
+        {
+            GameManager.BombPlacer.PickBombFromWorld(this);
+        }
+    }
 
-    public abstract void Explode();
+    public virtual void Explode()
+    {
+        SetLabelActive(false);
+        animator.SetTrigger("Explode");
 
-    public abstract void Reset();
+        ballPosition = GameManager.Ball.transform.position;
+    }
+
+    public virtual void Reset()
+    {
+        SetLabelActive(true);
+        animator.SetTrigger("Reset");
+    }
 
     public void SetOrderNumber(int number)
     {
         orderNumber = number;
-
-		if (infoText == null) {
-			infoText = GetComponentInChildren<TextMesh> ();
-		}
-
-		infoText.text = (number + 1).ToString ();
+		infoText.text = (orderNumber + 1).ToString ();
     }
 
-	public void SetLabelActive (bool isActive)
+    public void PickUp()
+    {
+        if (infoText == null)
+        {
+            infoText = GetComponentInChildren<TextMesh>();
+        }
+
+        SetTransparent(true);
+    }
+
+    public void Place()
+    {
+        SetTransparent(false);
+        SetLabelActive(true);
+    }
+
+	protected void SetLabelActive (bool isActive)
 	{
-		if (isActive) {
-			infoText.color = new Color (0.0f, 0.0f, 0.0f, 1.0f);
-		} else {
-			infoText.color = new Color (0.0f, 0.0f, 0.0f, 0.3f);
+		if (isActive)
+        {
+            infoText.gameObject.SetActive(true);
+			//infoText.color = new Color (0.0f, 0.0f, 0.0f, 1.0f);
+		}
+        else
+        {
+            infoText.gameObject.SetActive(false);
+            //infoText.color = new Color (0.0f, 0.0f, 0.0f, 0.3f);
 		}
 	}
 
-	public void SetTransparent (bool trans) {
+	private void SetTransparent (bool trans) {
 
 		if (trans) {
 			//GetComponent<SpriteRenderer> ().color = new Color (1f,1f,1f,0.5f);
