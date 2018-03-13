@@ -11,7 +11,8 @@ public class CirclularBomb : Bomb {
         Vector2 direction = (ballPosition - (Vector2)transform.position).normalized;
         float distance = Vector2.Distance(ballPosition, transform.position);
 
-        GameManager.Ball.AddForce(direction * (1 / distance * force));
+        GameManager.Ball.AddForce(direction * ForceRelativeToDistance(distance));
+
         GameManager.SoundManager.Explosion();
     }
 }
